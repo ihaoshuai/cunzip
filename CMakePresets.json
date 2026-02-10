@@ -1,0 +1,37 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "base",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "E:/opt/module/vcpkg-2024.11.16/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
+                "VCPKG_HOST_TRIPLET": "x64-mingw-dynamic"
+            }
+        },
+
+        {
+            "name": "clang",
+            "inherits": "base",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "E:/env/mingw64/bin/clang.exe",
+                "CMAKE_CXX_COMPILER": "E:/env/mingw64/bin/clang++.exe",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+
+        {
+            "name": "mingw64",
+            "inherits": "base",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "E:/env/mingw64/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "E:/env/mingw64/bin/g++.exe",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ]
+}
